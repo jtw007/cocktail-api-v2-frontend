@@ -1,51 +1,32 @@
 import React from 'react'
-// import { useState, useEffect } from 'react'
+import { useNavigate, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
     const [recipe, setRecipe ] = useState([])
     const [results, setResults ] = useState('')
-    // const apiNinjaKey = process.env.API_KEY 
 
-    // useEffect(() => {
-    //     const fetchResults = async () => {
-    //         try {
-    //             const response = await fetch(
-    //                 `https://api.api-ninjas.com/v1/cocktail?name=${name}`,
-    //                 {
-    //                     method: "GET",
-    //                     headers: {
-    //                         'X-Api-Key': apiNinjaKey,
-    //                     }
-    //                 }
-    //             )
-    //             const results = await response.json()
-    //             console.log(results)
-    //         } catch (error) {
-    //             console.warn(error)
-    //         }
-    //     }
-    // })
+    const navigate = useNavigate()
+    const API_KEY = process.env.API_KEY
 
     const fetchResults = async () => {
+        // e.preventDefault()
         try {
-            // const url = `https://api.api-ninjas.com/v1/cocktail?name=${results}`
-            const config = { headers: { 'X-Api-Key': API_KEY}} 
-            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, config)
+            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}})
             setRecipe(response.data)
-            console.log(fetchResults)
         } catch (error) {
             console.warn(error)
         }
     }
+    useEffect(() => {fetchResults()}, [])
 
     const recipeResults = recipe.map((cocktail, idx) => {
         return (
             <div key={`cocktail-${idx}`}>
-                <h3>{cocktail.name}</h3>
-                <p>Ingredients: {cocktail.ingredients}</p>
-                <p>Instructions: {cocktail.instructions}</p>
+                <h3>{cocktail?.name}</h3>
+                <p>Ingredients: {cocktail?.ingredients}</p>
+                <p>Instructions: {cocktail?.instructions}</p>
             </div>
         )
     })
@@ -70,7 +51,7 @@ const Home = () => {
                         type="text" 
                         placeholder="Search for a recipe" 
                         aria-label="Search" 
-                        // value={recipe}
+                        value={results}
                         onChange={(e) => setResults(e.target.value)}
                     />
 
