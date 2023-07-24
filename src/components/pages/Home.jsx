@@ -8,15 +8,15 @@ const Home = () => {
     const [results, setResults ] = useState('')
 
     const navigate = useNavigate()
-    const API_KEY = process.env.API_KEY
 
     const fetchResults = async () => {
-        // e.preventDefault()
         try {
-            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}})
+            // e.preventDefault()
+            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`)
             setRecipe(response.data)
+            console.log(`response.data ${response.data}`)
         } catch (error) {
-            console.warn(error)
+            console.warn(error.response.data)
         }
     }
     useEffect(() => {fetchResults()}, [])
