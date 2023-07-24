@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
+    const API_KEY = import.meta.env.VITE_API_KEY
+
     const [recipe, setRecipe ] = useState([])
     const [results, setResults ] = useState('')
 
@@ -12,7 +14,7 @@ const Home = () => {
     const fetchResults = async () => {
         try {
             // e.preventDefault()
-            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`)
+            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}} )
             setRecipe(response.data)
             console.log(`response.data ${response.data}`)
         } catch (error) {
