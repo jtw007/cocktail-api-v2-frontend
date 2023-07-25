@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate, Navigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -7,13 +7,16 @@ const Home = () => {
     const API_KEY = import.meta.env.VITE_API_KEY
 
     const [recipe, setRecipe ] = useState([])
-    const [results, setResults ] = useState('')
+    const [results, setResults ] = useState({})
 
     const navigate = useNavigate()
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     const fetchResults = async () => {
         try {
-            // e.preventDefault()
             const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}} )
             setRecipe(response.data)
             console.log(`response.data ${response.data}`)
@@ -23,7 +26,11 @@ const Home = () => {
     }
     useEffect(() => {fetchResults()}, [])
 
-    const recipeResults = recipe.map((cocktail, idx) => {
+    const handleRecipeClick = recipe => {
+        setResults(recipe)
+    }
+
+    const recipeResults = recipe?.map((cocktail, idx) => {
         return (
             <div key={`cocktail-${idx}`}>
                 <h3>{cocktail?.name}</h3>
@@ -45,7 +52,7 @@ const Home = () => {
             </div>
 
             <div className="">
-                <form className="">
+                <form className=""onSubmit={handleSubmit}>
                     <input 
                         className="" 
                         autoComplete="off" 
