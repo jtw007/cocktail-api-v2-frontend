@@ -1,25 +1,46 @@
 import React from 'react'
-// import { useState, useEffect } from 'react'
+import { useNavigate, Navigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
-    //display search results on the home page
-    const [results, setResults ] = useState([])
+    const API_KEY = import.meta.env.VITE_API_KEY
 
-    const fetchResults = async (req, res) => {
+    const [recipe, setRecipe ] = useState([])
+    const [results, setResults ] = useState({})
+
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
+    const fetchResults = async () => {
         try {
-            let name = req.query.search 
-            e.preventDefault()
-            const url = `https://api.api-ninjas.com/v1/cocktail?name=${name}`
-            const config = { headers: { 'X-Api-Key': API_KEY}} 
-            const response = await axios.get(url, config)
-            setResults(response.data)
-            console.log(fetchResults)
+            const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}} )
+            setRecipe(response.data)
+            console.log(`response.data ${response.data}`)
         } catch (error) {
-            console.warn(error)
+            console.warn(error.response.data)
         }
     }
+    useEffect(() => {fetchResults()}, [])
+
+    const handleRecipeClick = recipe => {
+        setResults(recipe)
+    }
+
+    const recipeResults = recipe?.map((cocktail, idx) => {
+        return (
+            <div key={`cocktail-${idx}`}>
+                <h3>{cocktail?.name}</h3>
+                <p>Ingredients: {cocktail?.ingredients}</p>
+                <p>Instructions: {cocktail?.instructions}</p>
+            </div>
+        )
+    })
+    console.log(recipeResults)
+    
     return (
         <div className='home'>
             <div className='card-body'>
@@ -31,11 +52,28 @@ const Home = () => {
             </div>
 
             <div className="">
-                <form className="" onSubmit={fetchResults}>
-                    <input className="" autocomplete="off" name="search" type="text" placeholder="Search for a recipe" aria-label="Search" />
-                    <button className="" type="submit">Search</button>
+                <form className=""onSubmit={handleSubmit}>
+                    <input 
+                        className="" 
+                        autoComplete="off" 
+                        name="search" 
+                        type="text" 
+                        placeholder="Search for a recipe" 
+                        aria-label="Search" 
+                        value={results}
+                        onChange={(e) => setResults(e.target.value)}
+                    />
+
+                    <button className="" 
+                        type="submit" 
+                        onClick={fetchResults}
+                    >
+                        Search</button>
                 </form>
             </div>
+
+            {recipeResults}
+
         </div>
     )
 }
