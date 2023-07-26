@@ -7,27 +7,32 @@ const Home = () => {
     const API_KEY = import.meta.env.VITE_API_KEY
 
     const [recipe, setRecipe ] = useState([])
-    const [results, setResults ] = useState({})
+    const [results, setResults ] = useState('')
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
 
     const fetchResults = async () => {
         try {
             const response = await axios.get(`https://api.api-ninjas.com/v1/cocktail?name=${results}`, { headers: { 'X-Api-Key': API_KEY}} )
             setRecipe(response.data)
-            console.log(`response.data ${response.data}`)
         } catch (error) {
             console.warn(error.response.data)
         }
     }
-    useEffect(() => {fetchResults()}, [])
 
-    const handleRecipeClick = recipe => {
-        setResults(recipe)
+    useEffect(() => {
+        console.log(`useEffect-ed`)
+    }, [])
+
+    // const handleRecipeClick = recipe => {
+    //     setResults(recipe)
+    // }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(`i was submitted`)
+        console.log(`recipeResults console.log ${recipeResults}`)
     }
 
     const recipeResults = recipe?.map((cocktail, idx) => {
@@ -39,8 +44,8 @@ const Home = () => {
             </div>
         )
     })
-    console.log(recipeResults)
     
+
     return (
         <div className='home'>
             <div className='card-body'>
@@ -52,7 +57,7 @@ const Home = () => {
             </div>
 
             <div className="">
-                <form className=""onSubmit={handleSubmit}>
+                <form className="" onSubmit={handleSubmit}>
                     <input 
                         className="" 
                         autoComplete="off" 
@@ -61,7 +66,7 @@ const Home = () => {
                         placeholder="Search for a recipe" 
                         aria-label="Search" 
                         value={results}
-                        onChange={(e) => setResults(e.target.value)}
+                        onChange={e => setResults(e.target.value)}
                     />
 
                     <button className="" 
