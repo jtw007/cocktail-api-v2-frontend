@@ -25,26 +25,28 @@ const Home = () => {
         console.log(`useEffect-ed`)
     }, [])
 
-    // const handleRecipeClick = recipe => {
-    //     setResults(recipe)
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(`i was submitted`)
-        console.log(`recipeResults console.log ${recipeResults}`)
+        // console.log(`i was submitted`)
+        // console.log(`recipeResults console.log ${recipeResults}`)
     }
 
     const recipeResults = recipe?.map((cocktail, idx) => {
+        let ingredientsArray = (ingredient) =>  {
+            return ingredient.toString().split(',')
+        }  
         return (
             <div key={`cocktail-${idx}`}>
-                <h3>{cocktail?.name}</h3>
-                <p>Ingredients: {cocktail?.ingredients}</p>
-                <p>Instructions: {cocktail?.instructions}</p>
+                <h3 style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
+                <ul className='list'>
+                    <li>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
+                    {/* <li>Ingredients: {cocktail?.ingredients}</li> */}
+                    <p>Instructions: {cocktail?.instructions}</p>
+                </ul>
+                
             </div>
         )
     })
-    
 
     return (
         <div className='home'>
