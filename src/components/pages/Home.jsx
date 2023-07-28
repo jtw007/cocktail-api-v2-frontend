@@ -22,7 +22,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log(`useEffect-ed`)
+        // console.log(`useEffect-ed`)
     }, [])
 
     const handleSubmit = (e) => {
@@ -33,15 +33,25 @@ const Home = () => {
 
     const recipeResults = recipe?.map((cocktail, idx) => {
         let ingredientsArray = (ingredient) =>  {
-            return ingredient.toString().split(',')
-        }  
+            let stringSplit = ingredient.toString().split(',')
+            let splitMap = stringSplit.map((string, idx) => (
+                <li key={idx}>{string}</li>
+            ));
+            return splitMap;
+        }
+        let instructionArray = (instruction) =>  {
+            let stringSplit = instruction.toString().split('.')
+            let splitMap = stringSplit.map((string, idx) => (
+                <li key={idx}>{string}</li>
+            ));
+            return splitMap;
+        }
         return (
             <div key={`cocktail-${idx}`}>
                 <h3 style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className='list'>
-                    <li>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
-                    {/* <li>Ingredients: {cocktail?.ingredients}</li> */}
-                    <p>Instructions: {cocktail?.instructions}</p>
+                    Ingredients: {ingredientsArray(cocktail?.ingredients)}
+                    Instructions: {instructionArray(cocktail?.instructions)}
                 </ul>
                 
             </div>
