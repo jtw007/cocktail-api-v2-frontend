@@ -11,6 +11,7 @@ import './App.css'
 //components import
 import Navbar from './components/NavBar'
 import Home from './components/pages/Home'
+import Login from './components/pages/Login'
 
 function App() {
   //currently logged in user will be stored here in state
@@ -24,10 +25,17 @@ function App() {
 
       <div className='App'>
         <Routes>
+
           <Route 
             path='/'
             element={<Home />}
           />
+
+          <Route 
+            path='/login'
+            element={<Login />}
+          />
+
         </Routes>
       </div>
 

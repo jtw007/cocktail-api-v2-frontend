@@ -8,6 +8,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
         <div className=''>
             <a className='' href='/'>Home</a>
             <a className='' href='/profile'>Profile</a>
+            <a className='' href='/login'>Login</a>
         </div>
     </nav>
     )

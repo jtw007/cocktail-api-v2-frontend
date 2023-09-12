@@ -32,6 +32,7 @@ const Home = () => {
     }
 
     const recipeResults = recipe?.map((cocktail, idx) => {
+        //function splits the ingredients at the periods at the commas and lists them as bullet points instead
         let ingredientsArray = (ingredient) =>  {
             let stringSplit = ingredient.toString().split(',')
             let splitMap = stringSplit.map((string, idx) => (
@@ -39,6 +40,7 @@ const Home = () => {
             ));
             return splitMap;
         }
+        //function splits the instructions at the periods at the end of the sentence and lists them as bullet points instead
         let instructionArray = (instruction) =>  {
             let stringSplit = instruction.toString().split('.')
             let splitMap = stringSplit.map((string, idx) => (
