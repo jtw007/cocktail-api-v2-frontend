@@ -3,7 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({ currentUser, setCurrentUser}) => {
     // state for the controlled form
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -18,7 +18,7 @@ const Login = () => {
 				email, 
 				password
 			}
-			// const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, reqBody)
+			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/login`, reqBody)
 
 			// save the token in localstorage
 			const { token } = response.data
@@ -39,13 +39,16 @@ const Login = () => {
  	}
 
 	// conditionally render a navigate component
-	// if (currentUser) {
-	// 	return <Navigate to="/profile" />
-	// }
+	if (currentUser) {
+		return <Navigate to="/profile" />
+	} else if(!currentUser) {
+        return <Navigate to='/login' />
+    }
 
     return (
         <div>
             <p className=''>Log into your account</p>
+
             <div className=''>
                 <p className=''>{msg}</p>
             </div>
@@ -61,11 +64,14 @@ const Login = () => {
                     <input
                         type='password'
                         placeholder='Password'
-                        onchange={e => setEmail(e.target.value)}
+                        onchange={e => setPassword(e.target.value)}
                         value={password}
                     />
 
-                    <button>Login</button>
+                    <button type='submit' id='login-btn'>Login</button>
+                    <div id="login-register">
+                        <p>Don't have an account? Sign up <a href='/register'>here</a></p>
+                    </div>
                 </form>
             </div>
         </div>

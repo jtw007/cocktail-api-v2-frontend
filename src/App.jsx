@@ -12,6 +12,8 @@ import './App.css'
 import Navbar from './components/NavBar'
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
+import Profile from './components/pages/Profile'
+import Register from './components/pages/Register'
 
 function App() {
   //currently logged in user will be stored here in state
@@ -34,6 +36,16 @@ function App() {
           <Route 
             path='/login'
             element={<Login />}
+          />
+
+          <Route 
+            path='/profile'
+            element={<Profile />}
+          />
+
+          <Route 
+            path='/register'
+            element={<Register />}
           />
 
         </Routes>
