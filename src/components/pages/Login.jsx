@@ -41,9 +41,7 @@ const Login = ({ currentUser, setCurrentUser}) => {
 	// conditionally render a navigate component
 	if (currentUser) {
 		return <Navigate to="/profile" />
-	} else if(!currentUser) {
-        return <Navigate to='/login' />
-    }
+	} 
 
     return (
         <div>
@@ -58,13 +56,13 @@ const Login = ({ currentUser, setCurrentUser}) => {
                     <input
                         type='email'
                         placeholder='Email'
-                        onchange={e => setEmail(e.target.value)}
+                        onChange={e => setEmail(e.target.value)}
                         value={email}
                     />
                     <input
                         type='password'
                         placeholder='Password'
-                        onchange={e => setPassword(e.target.value)}
+                        onChange={e => setPassword(e.target.value)}
                         value={password}
                     />
 
