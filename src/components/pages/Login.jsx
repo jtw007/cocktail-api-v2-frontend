@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 
 const Login = ({ currentUser, setCurrentUser}) => {
     // state for the controlled form
@@ -68,7 +68,8 @@ const Login = ({ currentUser, setCurrentUser}) => {
 
                     <button type='submit' id='login-btn'>Login</button>
                     <div id="login-register">
-                        <p>Don't have an account? Sign up <a href='/register'>here</a></p>
+                        {/* <p>Don't have an account? Sign up <a href='/register'>here</a></p> */}
+                        Don't have an account? <Link to={'/register'}>Register here</Link> 
                     </div>
                 </form>
             </div>

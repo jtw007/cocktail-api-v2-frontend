@@ -20,7 +20,8 @@ const Register = ({ currentUser, setCurrentUser }) => {
 				email, 
 				password
 			}
-			const response = await axios.post(`${import.meta.env.REACT_APP_SERVER_URL}/api-v1/users/register`, reqBody)
+			const serverUrl = import.meta.env.VITE_REACT_APP_SERVER_URL
+			const response = await axios.post(`${serverUrl}/api-v1/users/register`, reqBody)
 
 			// save the token in localstorage
 			const { token } = response.data
@@ -32,10 +33,10 @@ const Register = ({ currentUser, setCurrentUser }) => {
 			// set the user in App's state to be the decoded token
 			setCurrentUser(decoded)
 
-		} catch (err) {
-			console.warn(err)
-			if (err.response) {
-				setMsg(err.response.data.msg)
+		} catch (error) {
+			console.warn(error)
+			if (error.response) {
+				setMsg(`${error.response.data.msg}`)
 			}
 		}
     }
