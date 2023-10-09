@@ -20,8 +20,8 @@ const Register = ({ currentUser, setCurrentUser }) => {
 				email, 
 				password
 			}
-			const serverUrl = import.meta.env.VITE_REACT_APP_SERVER_URL
-			const response = await axios.post(`${serverUrl}/api-v1/users/register`, reqBody)
+			const serverUrl = import.meta.env.VITE_API_SERVER_URL
+			const response = await axios.post(`${serverUrl}/api/v1/users/register`, reqBody)
 
 			// save the token in localstorage
 			const { token } = response.data
@@ -45,7 +45,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
     if (currentUser) {
         return <Navigate to='/profile' />
     }
-
+	
     return (
         <div id='register-container'>
             <div id='register-message'>
