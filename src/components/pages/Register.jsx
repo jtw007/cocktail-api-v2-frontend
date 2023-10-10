@@ -21,7 +21,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
 				password
 			}
 			const serverUrl = import.meta.env.VITE_API_SERVER_URL
-			const response = await axios.post(`${serverUrl}/api/v1/users/register`, reqBody)
+			const response = await axios.post(`${serverUrl}/api-v1/users/register`, reqBody)
 
 			// save the token in localstorage
 			const { token } = response.data
