@@ -36,7 +36,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
 		} catch (error) {
 			console.warn(error)
 			if (error.response) {
-				setMsg(`${error.response.data.msg}`)
+				setMsg(error.response.data.msg)
 			}
 		}
     }

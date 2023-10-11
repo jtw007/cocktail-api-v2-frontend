@@ -3,7 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Navigate, Link } from 'react-router-dom'
 
-const Login = ({ currentUser, setCurrentUser}) => {
+const Login = ({ currentUser, setCurrentUser }) => {
     // state for the controlled form
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -13,12 +13,13 @@ const Login = ({ currentUser, setCurrentUser}) => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 		try {
-			// post fortm data to the backend
+			// post form data to the backend
 			const reqBody = {
 				email, 
 				password
 			}
-			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/login`, reqBody)
+            const serverUrl = import.meta.env.VITE_API_SERVER_URL
+			const response = await axios.post(`${serverUrl}/api-v1/users/login`, reqBody)
 
 			// save the token in localstorage
 			const { token } = response.data
@@ -68,11 +69,11 @@ const Login = ({ currentUser, setCurrentUser}) => {
 
                     <button type='submit' id='login-btn'>Login</button>
                     <div id="login-register">
-                        {/* <p>Don't have an account? Sign up <a href='/register'>here</a></p> */}
                         Don't have an account? <Link to={'/register'}>Register here</Link> 
                     </div>
                 </form>
             </div>
+
         </div>
     )
 }
