@@ -22,8 +22,7 @@ const Profile = ({ currentUser, handleLogout }) => {
                 const response = await axios.get(`${serverUrl}/api-v1/users/auth-locked`, options)
                 // example POST with auth headers (options are always last argument)
                 // await axios.post(url, requestBody (form data), options)
-                // set the secret user message in state
-                setMsg(response.data.msg)
+
             } catch (err) {
                 // if the error is a 401 -- that means that auth failed
                 console.warn(err)
