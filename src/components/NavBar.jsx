@@ -5,7 +5,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
 		<>
 			{/* if the user is logged in... */}
 			<Link to="/">
-				<span onClick={handleLogout}>logout</span>
+				<span onClick={handleLogout}>Logout</span>
 			</Link>
 
 			<Link to="/profile">
@@ -29,11 +29,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
 
     return (
     <nav className=''>
-        <div className=''>
-            <a className='' href='/'>Home</a>
-            <a className='' href='/profile'>Profile</a>
-            <a className='' href='/login'>Login</a>
-        </div>
+        <p><a href='/'>Brand Name</a></p>
 
         {currentUser ? loggedIn : loggedOut}
     </nav>
