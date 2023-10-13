@@ -19,7 +19,7 @@ function App() {
   //currently logged in user will be stored here in state
   const [currentUser, setCurrentUser] = useState(null)
 
-  // useEffect -- if the user navigates away form the page, we will log them back in
+  // useEffect -- if the user navigates away from the page, we will log them back in
   useEffect(() => { 
     // check to see if token is in storage
     const token = localStorage.getItem('jwt')
