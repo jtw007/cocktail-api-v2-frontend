@@ -43,13 +43,11 @@ function App() {
 
   return (
     <Router>
-      <header>
-        <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
-      </header>
-
       <div className='App'>
-        <Routes>
 
+        <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
+
+        <Routes>
           <Route 
             path='/'
             element={<Home />}
