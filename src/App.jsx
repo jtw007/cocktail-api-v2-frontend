@@ -6,7 +6,6 @@ import {
 import { useState, useEffect } from 'react'
 import jwt_decode from 'jwt-decode'
 
-import './App.css'
 
 //components import
 import Navbar from './components/NavBar'
