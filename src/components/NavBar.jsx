@@ -50,7 +50,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
             <div onClick={handleNav} className='block md:hidden'>
                 {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} /> }
             </div>
-            <ul className={loggedIn && nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 ' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+            <ul className={loggedIn && nav ? 'fixed left-0 top-[10%] w-full h-0 overflow-hidden ease-in-out duration-500 border-r border-r-gray-900 bg-[#000300]' : 'ease-in-out duration-500 fixed top-[-100%] w-full h-0 overflow-hidden'}>
                 <li className='p-4'>
                     <Link to='/'>Home</Link>
                 </li>
@@ -62,18 +62,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
                 </li>
             </ul>
 
-            {/* <ul className={loggedOut && nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 md:hidden' : 'ease-in-out duration-500 fixed left-[-100%]'}>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to="/register">Register</Link>
-                    </li>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to="/login">Login</Link>
-                </li>
-            </ul> */}
-            <ul className={loggedOut && nav ? 'fixed flex justify-between z-50 lg:py-5 px-20 py-4 flex-1' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+            <ul className={loggedOut && nav ? 'fixed left-0 top-[10%] w-full h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
                 <li className='p-4 border-b border-gray-600'>
                     <Link to='/'>Home</Link>
                 </li>
