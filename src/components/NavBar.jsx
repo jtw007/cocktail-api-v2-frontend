@@ -40,17 +40,52 @@ const NavBar = ({ currentUser, handleLogout }) => {
 	 )
 
     return (
-    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white bg-[#904343]'>
-        <h1 className=''>
-            <a className='w-full text-2xl font-bold text-[#00df]' href='/'>Brand Name</a>
-        </h1>
+        <div className='flex justify-between items-center h-24 max-w-[1240px]w-full mx-auto px-10 text-white bg-[#904343]'>
+            <h1 className='w-full text-3xl font-bold text-[#00df]'>
+                <a className='' href='/'>Brand Name</a>
+            </h1>
 
-        {currentUser ? loggedIn : loggedOut}
-         {/* the hamburger menu for the navbar only shows on smaller screens */}
-         <div onClick={handleNav} className='block md:hidden'>
+            {currentUser ? loggedIn : loggedOut}
+            {/* the hamburger menu for the navbar only shows on smaller screens */}
+            <div onClick={handleNav} className='block md:hidden'>
+                {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} /> }
+            </div>
+            <ul className={loggedIn && nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 ' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+                <li className='p-4'>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li className='p-4'>
+                    <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
+                </li>
+                <li className='p-4'>
+                    <Link to="/profile">Profile</Link>
+                </li>
+            </ul>
 
-         </div>
-    </div>
+            {/* <ul className={loggedOut && nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 md:hidden' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to="/register">Register</Link>
+                    </li>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to="/login">Login</Link>
+                </li>
+            </ul> */}
+            <ul className={loggedOut && nav ? 'fixed flex justify-between z-50 lg:py-5 px-20 py-4 flex-1' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to="/register">Register</Link>
+                    </li>
+                <li className='p-4 border-b border-gray-600'>
+                    <Link to="/login">Login</Link>
+                </li>
+            </ul>
+
+        </div>
     )
 }
 
