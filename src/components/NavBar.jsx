@@ -9,6 +9,10 @@ const NavBar = ({ currentUser, handleLogout }) => {
         setNav(!nav)
     }
 
+    const closeNav = () => {
+        setNav(false)
+    }
+
     {/* if the user is logged in... */}
     const loggedIn = (
 		<ul className='hidden md:flex'>
@@ -50,27 +54,27 @@ const NavBar = ({ currentUser, handleLogout }) => {
             <div onClick={handleNav} className='block md:hidden'>
                 {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} /> }
             </div>
-            <ul className={loggedIn && nav ? 'fixed left-0 top-[10%] w-full h-0 overflow-hidden ease-in-out duration-500 border-r border-r-gray-900 bg-[#000300]' : 'ease-in-out duration-500 fixed top-[-100%] w-full h-0 overflow-hidden'}>
-                <li className='p-4'>
-                    <Link to='/'>Home</Link>
+            <ul className={loggedIn && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#000300] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
+                <li className='py-10 text-center w-full'>
+                    <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
-                <li className='p-4'>
-                    <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
+                <li className='py-10 text-center w-full'>
+                    <Link to="/" onClick={closeNav}><span onClick={handleLogout}>Logout</span></Link>
                 </li>
-                <li className='p-4'>
-                    <Link to="/profile">Profile</Link>
+                <li className='py-10 text-center w-full'>
+                    <Link to="/profile" onClick={closeNav}>Profile</Link>
                 </li>
             </ul>
 
-            <ul className={loggedOut && nav ? 'fixed left-0 top-[10%] w-full h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to='/'>Home</Link>
+            <ul className={loggedOut && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#000300] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
+                <li className='py-10 text-center w-full'>
+                    <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to="/register">Register</Link>
+                <li className='py-10 text-center w-full'>
+                    <Link to="/register" onClick={closeNav}>Register</Link>
                     </li>
-                <li className='p-4 border-b border-gray-600'>
-                    <Link to="/login">Login</Link>
+                <li className='py-10 text-center w-full'>
+                    <Link to="/login" onClick={closeNav}>Login</Link>
                 </li>
             </ul>
 
