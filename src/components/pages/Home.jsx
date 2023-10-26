@@ -49,7 +49,7 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div key={`cocktail-${idx}`}>
+            <div className=' shadow-lg flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300' key={`cocktail-${idx}`}>
                 <h3 style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className='list'>
                     Ingredients: {ingredientsArray(cocktail?.ingredients)}
@@ -61,35 +61,36 @@ const Home = () => {
     })
 
     return (
-        <div className='home'>
-            <div className='card-body'>
-                <h2 className=''>Search for a recipe</h2>
+        <div className='w-full py-[1rem]'>
+            <div className='w-[50%] shadow-xl flex flex-col p-4 my-4 rounded-xl border-black-900'>
+                <h2 className='text-3xl'>Search for a recipe</h2>
                 <h4 className=''>Please drink responsibly</h4>
                 <p className="card-text">Include one of the following search parameters: </p>
                 <p className="card-text">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
                 <p className="card-text">Ingredients: comma-separated string of ingredients to search. Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use vodka, lemon juice.</p>
+                 <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                        <input 
+                            className="" 
+                            autoComplete="off" 
+                            name="search" 
+                            type="text" 
+                            placeholder="Search for a recipe" 
+                            aria-label="Search" 
+                            value={results}
+                            onChange={e => setResults(e.target.value)}
+                        />
+
+                        <button className="" 
+                            type="submit" 
+                            onClick={fetchResults}
+                        >
+                            Search</button>
+                    </form>
+                </div>
             </div>
 
-            <div className="">
-                <form className="" onSubmit={handleSubmit}>
-                    <input 
-                        className="" 
-                        autoComplete="off" 
-                        name="search" 
-                        type="text" 
-                        placeholder="Search for a recipe" 
-                        aria-label="Search" 
-                        value={results}
-                        onChange={e => setResults(e.target.value)}
-                    />
-
-                    <button className="" 
-                        type="submit" 
-                        onClick={fetchResults}
-                    >
-                        Search</button>
-                </form>
-            </div>
+           
 
             {recipeResults}
 
