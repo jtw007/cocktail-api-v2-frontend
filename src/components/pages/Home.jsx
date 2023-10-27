@@ -49,21 +49,21 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className='md:w-[75%] md:h-full max-w-full shadow-lg p-4 my-4 rounded-lg hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
-                <h3 className='text-xl border-b border-b-black' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
+            <div className='max-w-[356px] h-[500px] shadow-lg p-4 my-4 rounded-2xl hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
+                <h3 className='text-xl border-b border-b-black text-center' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <li className='border-b border-b-black'>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
                     <li className='border-b border-b-black'>Instructions: {instructionArray(cocktail?.instructions)}</li>
                 </ul>
-                
+                {/* <button className='bg-[#00d] text-white rounded-md font-medium w-[150px] px-6 py-3'>Button</button> */}
             </div>
         )
     })
 
     return (
-        <div className='w-full'>
+        <div className='w-full flex flex-col items-center'>
 
-            <div className='max-w-[1240px] md:w-full shadow-2xl flex flex-col p-4 my-4 items-center rounded-3xl border border-red-700'>
+            <div className='max-w-[1240px] md:w-full shadow-2xl flex flex-col p-4 my-4 rounded-3xl border border-red-700'>
                 <h2 className='text-3xl py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="card-text text-center py-2">Include one of the following search parameters: </p>
@@ -91,7 +91,7 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <div className='mx-auto grid lg:grid-cols-5 sm:grid-cols-2 px-4 gap-8'>
+            <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 px-4 gap-8 border content-center border-red-600'>
                 {recipeResults} 
             </div>
         </div>
