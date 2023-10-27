@@ -49,11 +49,11 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className='w-full md:w-[80%] shadow-lg p-4 my-4 rounded-lg hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
-                <h3 className='text-xl' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
+            <div className='md:w-[75%] md:h-full max-w-full shadow-lg p-4 my-4 rounded-lg hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
+                <h3 className='text-xl border-b border-b-black' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
-                    <li className='border border-b-black'>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
-                    <li className='border border-b-black'>Instructions: {instructionArray(cocktail?.instructions)}</li>
+                    <li className='border-b border-b-black'>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
+                    <li className='border-b border-b-black'>Instructions: {instructionArray(cocktail?.instructions)}</li>
                 </ul>
                 
             </div>
@@ -63,7 +63,7 @@ const Home = () => {
     return (
         <div className='w-full'>
 
-            <div className='lg:w-[50%] md:w-full shadow-2xl flex flex-col p-4 my-4 items-center rounded-3xl border border-red-700'>
+            <div className='max-w-[1240px] md:w-full shadow-2xl flex flex-col p-4 my-4 items-center rounded-3xl border border-red-700'>
                 <h2 className='text-3xl py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="card-text text-center py-2">Include one of the following search parameters: </p>
@@ -91,7 +91,7 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <div className='mx-auto grid md:grid-cols-5 px-4 gap-8'>
+            <div className='mx-auto grid lg:grid-cols-5 sm:grid-cols-2 px-4 gap-8'>
                 {recipeResults} 
             </div>
         </div>
