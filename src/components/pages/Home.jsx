@@ -49,9 +49,9 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className=' shadow-lg flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300' key={`cocktail-${idx}`}>
-                <h3 style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
-                <ul className='list'>
+            <div className='w-screen shadow-lg p-4 my-4 rounded-lg hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
+                <h3 className='text-xl' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
+                <ul className=''>
                     Ingredients: {ingredientsArray(cocktail?.ingredients)}
                     Instructions: {instructionArray(cocktail?.instructions)}
                 </ul>
@@ -61,17 +61,19 @@ const Home = () => {
     })
 
     return (
-        <div className='w-full py-[1rem]'>
-            <div className='w-[50%] shadow-xl flex flex-col p-4 my-4 rounded-xl border-black-900'>
-                <h2 className='text-3xl'>Search for a recipe</h2>
-                <h4 className=''>Please drink responsibly</h4>
-                <p className="card-text">Include one of the following search parameters: </p>
-                <p className="card-text">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
-                <p className="card-text">Ingredients: comma-separated string of ingredients to search. Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use vodka, lemon juice.</p>
+        <div className='w-full'>
+
+            <div className='w-[50%] shadow-2xl flex flex-col p-4 my-4 items-center rounded-3xl border border-red-700'>
+                <h2 className='text-3xl py-4 text-center'>Search for a recipe</h2>
+                <h4 className='text-center'>Please drink responsibly</h4>
+                <p className="card-text text-center py-2">Include one of the following search parameters: </p>
+                <p className="card-text py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
+                <p className="card-text py-2">Ingredients: comma-separated string of ingredients to search. Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use vodka, lemon juice.</p>
+
                  <div className="">
-                    <form className="" onSubmit={handleSubmit}>
+                    <form className="flex flex-col sm:flex-row items-center justify-between w-full" onSubmit={handleSubmit}>
                         <input 
-                            className="" 
+                            className="p-3 flex w-full rounded-md text-black border-4 border-blue-700" 
                             autoComplete="off" 
                             name="search" 
                             type="text" 
@@ -81,7 +83,7 @@ const Home = () => {
                             onChange={e => setResults(e.target.value)}
                         />
 
-                        <button className="" 
+                        <button className="bg-[#00d] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3" 
                             type="submit" 
                             onClick={fetchResults}
                         >
@@ -89,11 +91,9 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-
-           
-
-            {recipeResults}
-
+            <div className='mx-auto grid md:grid-cols-5 gap-8'>
+                {recipeResults} 
+            </div>
         </div>
     )
 }

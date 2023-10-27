@@ -20,10 +20,10 @@ const NavBar = ({ currentUser, handleLogout }) => {
                 <Link to='/'>Home</Link>
             </li>
 			<li className='p-4'>
-                <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
+                <Link to="/profile">Profile</Link>
             </li>
 			<li className='p-4'>
-                <Link to="/profile">Profile</Link>
+                <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
             </li>
 		</ul>
 	 )
