@@ -52,8 +52,10 @@ const Home = () => {
             <div className='max-w-[356px] h-[500px] shadow-lg p-4 my-4 rounded-2xl hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b border-b-black text-center' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
-                    <li className='border-b border-b-black'>Ingredients: {ingredientsArray(cocktail?.ingredients)}</li>
-                    <li className='border-b border-b-black'>Instructions: {instructionArray(cocktail?.instructions)}</li>
+                    <p className='text-center'>Ingredients:</p>
+                    <li className='border-b border-b-black'>{ingredientsArray(cocktail?.ingredients)}</li>
+                    <p className='text-center'>Instructions:</p>
+                    <li className='border-b border-b-black'>{instructionArray(cocktail?.instructions)}</li>
                 </ul>
                 {/* <button className='bg-[#00d] text-white rounded-md font-medium w-[150px] px-6 py-3'>Button</button> */}
             </div>
@@ -64,11 +66,11 @@ const Home = () => {
         <div className='w-full flex flex-col items-center'>
 
             <div className='max-w-[1240px] shadow-2xl flex flex-col mx-4 p-4 my-4 rounded-3xl border border-red-700'>
-                <h2 className='text-3xl py-4 text-center'>Search for a recipe</h2>
+                <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
-                <p className="card-text text-center py-2">Include one of the following search parameters: </p>
-                <p className="card-text py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
-                <p className="card-text py-2">Ingredients: comma-separated string of ingredients to search. Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use vodka, lemon juice.</p>
+                <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
+                <p className="text-xl py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
+                <p className="text-xl py-2">Ingredients: comma-separated string of ingredients to search. Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use vodka, lemon juice.</p>
 
                  <div className="">
                     <form className="flex flex-col sm:flex-row items-center justify-between w-full" onSubmit={handleSubmit}>
