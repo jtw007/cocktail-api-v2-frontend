@@ -63,7 +63,7 @@ const Home = () => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='max-w-[1240px] md:w-full shadow-2xl flex flex-col p-4 my-4 rounded-3xl border border-red-700'>
+            <div className='max-w-[1240px] shadow-2xl flex flex-col mx-4 p-4 my-4 rounded-3xl border border-red-700'>
                 <h2 className='text-3xl py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="card-text text-center py-2">Include one of the following search parameters: </p>
@@ -91,7 +91,7 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 px-4 gap-8 border content-center border-red-600'>
+            <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 p-10 gap-8 border content-center border-red-600'>
                 {recipeResults} 
             </div>
         </div>
