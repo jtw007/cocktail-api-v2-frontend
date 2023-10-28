@@ -49,13 +49,13 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className='max-w-[356px] h-[600px] shadow-lg p-4 m-5 rounded-2xl hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
+            <div className='max-w-[370px] h-[600px] shadow-lg p-4 md:m-5 rounded-2xl hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <p className='text-center font-bold pt-2 text-lg'>Ingredients:</p>
-                    <li className='border-b border-black p-2 text-lg'>{ingredientsArray(cocktail?.ingredients)}</li>
+                    <p className='border-b border-black p-2 text-lg'>{ingredientsArray(cocktail?.ingredients)}</p>
                     <p className='text-center font-bold pt-2 text-lg'>Instructions:</p>
-                    <li className='border-b border-black p-2 text-lg'>{instructionArray(cocktail?.instructions)}</li>
+                    <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
                 </ul>
                 {/* <button className='bg-[#00d] text-white rounded-md font-medium w-[150px] px-6 py-3'>Button</button> */}
             </div>
