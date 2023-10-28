@@ -6,6 +6,14 @@ export default {
     ],
     theme: {
       extend: {},
+      screens: {
+        // @media (min-width: 375px) smallest screen, tablet size 834px, web screen 1920px
+        'sm': '375px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      }
     },
     plugins: [],
   }

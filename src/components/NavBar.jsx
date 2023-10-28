@@ -44,8 +44,8 @@ const NavBar = ({ currentUser, handleLogout }) => {
 	 )
 
     return (
-        <div className='flex justify-between items-center h-24 max-w-[1240px]w-full mx-auto px-10 text-white bg-[#904343]'>
-            <h1 className='w-full text-3xl font-bold text-[#00df]'>
+        <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#904343]'>
+            <h1 className='w-full text-3xl md:pl-10 font-bold text-[#00df]'>
                 <a className='' href='/'>Brand Name</a>
             </h1>
 

@@ -65,7 +65,7 @@ const Home = () => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='max-w-[1240px] shadow-2xl flex flex-col mt-12 p-4 my-4 rounded-3xl border border-red-700'>
+            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[1000px] xl:max-w-[1240px] shadow-2xl flex flex-col mt-12 p-4 my-4 rounded-3xl border border-red-700'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
@@ -73,7 +73,7 @@ const Home = () => {
                 <p className="text-xl py-2">Ingredients: Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use: vodka, lemon juice.</p>
 
                  <div className="">
-                    <form className="flex flex-col sm:flex-row items-center justify-between w-full" onSubmit={handleSubmit}>
+                    <form className="flex flex-col sm:flex-col items-center justify-between w-full" onSubmit={handleSubmit}>
                         <input 
                             className="p-3 flex w-full rounded-md text-black border-4 border-blue-700" 
                             autoComplete="off" 
