@@ -49,7 +49,7 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className='max-w-[370px] h-[600px] shadow-lg p-4 md:m-5 rounded-2xl hover:scale-105 duration-300 border border-blue-500' key={`cocktail-${idx}`}>
+            <div className='max-w-[350px] h-[600px] shadow-lg p-4 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-blue-500 bg-transparent bg-white' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <p className='text-center font-bold pt-2 text-lg'>Ingredients:</p>
@@ -65,7 +65,7 @@ const Home = () => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[1000px] xl:max-w-[1240px] shadow-2xl flex flex-col mt-12 p-4 my-4 rounded-3xl border border-red-700'>
+            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[1000px] xl:max-w-[1240px] shadow-2xl flex flex-col p-4 md:my-12 sm:my-5 rounded-3xl border-4 border-red-700 bg-transparent bg-white'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
@@ -73,9 +73,10 @@ const Home = () => {
                 <p className="text-xl py-2">Ingredients: Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use: vodka, lemon juice.</p>
 
                  <div className="">
-                    <form className="flex flex-col sm:flex-col items-center justify-between w-full" onSubmit={handleSubmit}>
+                    <form className="flex sm:flex-col md:flex-row items-center justify-center w-full" 
+                    onSubmit={handleSubmit}>
                         <input 
-                            className="p-3 flex w-full rounded-md text-black border-4 border-blue-700" 
+                            className="p-3 flex w-full rounded-full text-black border-4 border-blue-700 md:w-[50%]" 
                             autoComplete="off" 
                             name="search" 
                             type="text" 
@@ -93,7 +94,7 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 p-10 gap-8 content-center'>
+            <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 md:p-10 sm:py-5 gap-8 content-center'>
                 {recipeResults} 
             </div>
         </div>
