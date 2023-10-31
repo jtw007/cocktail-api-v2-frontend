@@ -49,11 +49,11 @@ const Home = () => {
             return splitMap;
         }
         return (
-            <div className='max-w-[350px] h-[600px] shadow-lg p-4 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-blue-500 bg-transparent bg-white' key={`cocktail-${idx}`}>
+            <div className='max-w-[350px] h-[600px] shadow-lg p-4 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85]' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <p className='text-center font-bold pt-2 text-lg'>Ingredients:</p>
-                    <p className='border-b border-black p-2 text-lg'>{ingredientsArray(cocktail?.ingredients)}</p>
+                    <p className='border-b-[3px] border-black p-2 text-lg'>{ingredientsArray(cocktail?.ingredients)}</p>
                     <p className='text-center font-bold pt-2 text-lg'>Instructions:</p>
                     <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
                 </ul>
@@ -65,7 +65,7 @@ const Home = () => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] shadow-2xl flex flex-col p-4 md:my-12 sm:my-5 rounded-3xl border-4 border-red-700 bg-slate-50/[.75]'>
+            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] shadow-2xl flex flex-col p-4 md:my-12 sm:my-5 rounded-3xl border-[5px] border-[#d72d5c] bg-slate-100/[.85]'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
@@ -76,7 +76,7 @@ const Home = () => {
                     <form className="flex sm:flex-col md:flex-row items-center justify-center w-full" 
                     onSubmit={handleSubmit}>
                         <input 
-                            className="p-3 flex w-full rounded-full text-black border-4 border-blue-700 md:w-[50%]" 
+                            className="p-3 flex w-full rounded-full text-black border-4 border-[#0000a3] md:w-[50%]" 
                             autoComplete="off" 
                             name="search" 
                             type="text" 
@@ -86,7 +86,7 @@ const Home = () => {
                             onChange={e => setResults(e.target.value)}
                         />
 
-                        <button className="bg-[#00d] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3" 
+                        <button className="bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#7500a2]" 
                             type="submit" 
                             onClick={fetchResults}
                         >
