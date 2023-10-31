@@ -72,27 +72,26 @@ const Home = () => {
                 <p className="text-xl py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
                 <p className="text-xl py-2">Ingredients: Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use: vodka, lemon juice.</p>
 
-                 <div className="">
-                    <form className="flex sm:flex-col md:flex-row items-center justify-center w-full" 
-                    onSubmit={handleSubmit}>
-                        <input 
-                            className="p-3 flex w-full rounded-full text-black border-4 border-[#0000a3] md:w-[50%]" 
-                            autoComplete="off" 
-                            name="search" 
-                            type="text" 
-                            placeholder="Search for a recipe" 
-                            aria-label="Search" 
-                            value={results}
-                            onChange={e => setResults(e.target.value)}
-                        />
+                <form className="flex sm:flex-col md:flex-row items-center justify-center w-full" 
+                onSubmit={handleSubmit}>
+                    <input 
+                        className="p-3 flex w-full rounded-full text-xl text-black border-4 border-[#0000a3] md:w-[50%]" 
+                        autoComplete="off" 
+                        name="search" 
+                        type="text" 
+                        placeholder="Search for a recipe" 
+                        aria-label="Search" 
+                        value={results}
+                        onChange={e => setResults(e.target.value)}
+                    />
 
-                        <button className="bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#7500a2]" 
-                            type="submit" 
-                            onClick={fetchResults}
-                        >
-                            Search</button>
-                    </form>
-                </div>
+                    <button className="bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]" 
+                        type="submit" 
+                        onClick={fetchResults}
+                    >
+                        Search</button>
+                </form>
+
             </div>
             <div className='mx-auto grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 md:p-10 sm:py-5 gap-8 content-center'>
                 {recipeResults} 
