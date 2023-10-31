@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { useState } from 'react'
+import navImg from '../assets/cocktails.png'
 
 const NavBar = ({ currentUser, handleLogout }) => {
     const [nav, setNav] = useState(false)
@@ -45,10 +46,14 @@ const NavBar = ({ currentUser, handleLogout }) => {
 
     return (
         <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#0000a3] shadow-md'>
-            <h1 className='w-full text-3xl md:pl-10 font-bold text-[#b501fb]'>
-                <a className='' href='/'>Brand Name</a>
-            </h1>
-
+            < a href='/'>
+                <div className='flex flex-row h-24 items-center'>
+                    <img className='w-[60px] h-[60px] sm:pr-2' src={navImg} alt='img' />
+                    <h1 className='text-3xl md:pl-3 font-bold text-[#b501fb]'>Brand Name
+                    </h1>
+                </div>
+            </a>
+            
             {currentUser ? loggedIn : loggedOut}
             {/* the hamburger menu for the navbar only shows on smaller screens */}
             <div onClick={handleNav} className='block md:hidden'>
