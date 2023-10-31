@@ -46,10 +46,10 @@ const NavBar = ({ currentUser, handleLogout }) => {
 
     return (
         <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#0000a3] shadow-md'>
-            < a href='/'>
+            <a href='/'>
                 <div className='flex flex-row h-24 items-center'>
                     <img className='w-[60px] h-[60px] sm:pr-2' src={navImg} alt='img' />
-                    <h1 className='text-3xl md:pl-3 font-bold text-[#b501fb]'>Brand Name
+                    <h1 className='text-3xl font-bold text-[#b501fb]'>Brand Name
                     </h1>
                 </div>
             </a>
