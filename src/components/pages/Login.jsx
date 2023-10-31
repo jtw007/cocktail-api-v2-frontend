@@ -47,11 +47,12 @@ const Login = ({ currentUser, setCurrentUser }) => {
     return (
         <div className='sm:my-[100px] md:my-[200px] lg:my-[300px] flex flex-col items-center justify-center sm:h-full'>
             <div className='shadow-2xl flex flex-col p-4 my-10 rounded-3xl border-[5px] border-[#d72d5c] bg-slate-100/[.85] items-center sm:w-[375px] md:w-[450px]'>
-                <div className=''>
-                    <p className=''>{msg}</p>
+                <div className='flex flex-col'>
+                    <p className='text-2xl font-bold text-center my-2'>Login</p>
+                    <p className='text-lg font-bold text-red-600'>{msg}</p>
                 </div>
 
-                <form className='flex flex-col border items-center'
+                <form className='flex flex-col items-center'
                 onSubmit={handleSubmit}>
                     <input
                         className='p-2 my-3 flex w-full rounded-full text-lg text-black border-4 border-[#0000a3]'
