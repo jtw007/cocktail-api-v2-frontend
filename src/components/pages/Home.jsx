@@ -65,7 +65,7 @@ const Home = () => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[1000px] xl:max-w-[1240px] shadow-2xl flex flex-col p-4 md:my-12 sm:my-5 rounded-3xl border-4 border-red-700 bg-transparent bg-white'>
+            <div className='sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] shadow-2xl flex flex-col p-4 md:my-12 sm:my-5 rounded-3xl border-4 border-red-700 bg-slate-50/[.75]'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>

@@ -16,13 +16,13 @@ const NavBar = ({ currentUser, handleLogout }) => {
     {/* if the user is logged in... */}
     const loggedIn = (
 		<ul className='hidden md:flex'>
-            <li className='p-4'>
+            <li className='p-4 text-lg'>
                 <Link to='/'>Home</Link>
             </li>
-			<li className='p-4'>
+			<li className='p-4 text-lg'>
                 <Link to="/profile">Profile</Link>
             </li>
-			<li className='p-4'>
+			<li className='p-4 text-lg'>
                 <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
             </li>
 		</ul>
@@ -31,21 +31,21 @@ const NavBar = ({ currentUser, handleLogout }) => {
      {/* if the user is not logged in... */}
 	 const loggedOut = (
 		<ul className='hidden md:flex'>
-            <li className='p-4'>
+            <li className='p-4 text-lg'>
                 <Link to='/'>Home</Link>
             </li>
-            <li className='p-4'>
+            <li className='p-4 text-lg'>
                 <Link to="/register">Register</Link>
                 </li>
-            <li className='p-4'>
+            <li className='p-4 text-lg'>
                 <Link to="/login">Login</Link>
             </li>
 		</ul>
 	 )
 
     return (
-        <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#904343]'>
-            <h1 className='w-full text-3xl md:pl-10 font-bold text-[#00df]'>
+        <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#0000a3] shadow-md'>
+            <h1 className='w-full text-3xl md:pl-10 font-bold text-[#b501fb]'>
                 <a className='' href='/'>Brand Name</a>
             </h1>
 
@@ -54,7 +54,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
             <div onClick={handleNav} className='block md:hidden'>
                 {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} /> }
             </div>
-            <ul className={loggedIn && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#000300] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
+            <ul className={loggedIn && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#0000a3] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
                 <li className='py-10 text-center w-full'>
                     <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
@@ -66,7 +66,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
                 </li>
             </ul>
 
-            <ul className={loggedOut && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#000300] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
+            <ul className={loggedOut && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#0000a3] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
                 <li className='py-10 text-center w-full'>
                     <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
