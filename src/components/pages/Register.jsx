@@ -47,7 +47,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
     }
 	
     return (
-        <div className='sm:my-[100px] md:my-[200px] lg:my-[300px] flex flex-col items-center justify-center sm:h-full'>
+        <div className='xs:my-[50px] sm:my-[100px] md:my-[200px] lg:my-[300px] flex flex-col items-center justify-center sm:h-full'>
 			<div className='shadow-2xl flex flex-col p-4 my-10 rounded-3xl border-[5px] border-[#d72d5c] bg-slate-100/[.85] items-center sm:w-[375px] md:w-[450px]'>
 				<div className='flex flex-col'>
 					<p className='text-2xl font-bold text-center my-2'>Register</p>
