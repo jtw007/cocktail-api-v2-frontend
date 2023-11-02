@@ -1,9 +1,8 @@
-import React from 'react'
 import { useNavigate, Navigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-const Home = () => {
+const Home = ({ currentUser }) => {
     const API_KEY = import.meta.env.VITE_API_KEY
 
     const [recipe, setRecipe ] = useState([])
@@ -30,6 +29,14 @@ const Home = () => {
         // console.log(`i was submitted`)
         // console.log(`recipeResults console.log ${recipeResults}`)
     }
+
+    const favButton = (
+        <button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Favorite</button>
+    )
+
+    const regButton = (
+        <button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Log in to favorite</button>
+    )
 
     const recipeResults = recipe?.map((cocktail, idx) => {
         //function splits the ingredients at the periods at the commas and lists them as bullet points instead
@@ -58,7 +65,7 @@ const Home = () => {
                     <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
                 </ul>
                 <div className='flex flex-col items-center h-[100%] justify-end mb-2'>
-                    <button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Favorite</button>
+                    {currentUser ? favButton : regButton}
                 </div>
             </div>
         )

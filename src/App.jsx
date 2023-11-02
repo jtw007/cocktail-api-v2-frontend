@@ -50,7 +50,7 @@ function App() {
         <Routes>
           <Route 
             path='/'
-            element={<Home />}
+            element={<Home currentUser={currentUser} />}
           />
 
           <Route 
