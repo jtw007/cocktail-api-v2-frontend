@@ -24,6 +24,9 @@ const NavBar = ({ currentUser, handleLogout }) => {
                 <Link to="/profile">Profile</Link>
             </li>
 			<li className='p-4 text-lg'>
+                <Link to="/favorites">Favorites</Link>
+            </li>
+			<li className='p-4 text-lg'>
                 <Link to="/"><span onClick={handleLogout}>Logout</span></Link>
             </li>
 		</ul>
