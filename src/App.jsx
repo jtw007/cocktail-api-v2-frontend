@@ -13,7 +13,7 @@ import Home from './components/pages/Home'
 import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
-import Faves from './components/pages/Faves'
+import Favorites from './components/pages/Favorites'
 
 function App() {
   //currently logged in user will be stored here in state
@@ -71,7 +71,7 @@ function App() {
 
           <Route 
             path='/favorites'
-            element={<Faves currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            element={<Favorites currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
         </Routes>
