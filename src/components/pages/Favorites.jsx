@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Faves = () => {
+const Favorites = () => {
     const [fave, setFave] = useState()
 
     const navigate = useNavigate()
@@ -15,7 +15,7 @@ const Faves = () => {
                 // hit the auth locked endpoint
                 const response = await axios.get(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`, {headers: {'Authorization': token}})
                 setFave(response.data)
-                console.log(response.data, 'hey')
+                // console.log(response.data, 'hey')
             } catch(error) {
                 // if error message is 401, means auth failed
                 console.warn(error)
@@ -37,4 +37,4 @@ const Faves = () => {
     )
 }
 
-export default Faves
+export default Favorites
