@@ -1,6 +1,7 @@
 import { useNavigate, Navigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import jwt_decode from 'jwt-decode'
 
 const Home = ({ currentUser }) => {
     const API_KEY = import.meta.env.VITE_API_KEY
@@ -31,8 +32,8 @@ const Home = ({ currentUser }) => {
     }
 
     const faveSubmit = (e) => {
-            console.log(`I was favorited`)
-            axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`)
+        console.log(`I was favorited`)
+        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`)
     }
 
     const favButton = (

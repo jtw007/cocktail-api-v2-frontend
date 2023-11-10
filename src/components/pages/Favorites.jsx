@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 
 const Favorites = () => {
     const [fave, setFave] = useState()
 
     const navigate = useNavigate()
+    //localStorage = web storage object that allows JS sites and apps to keep key-value pairs in web browser with no expiration date; enables developers to store and retrieve data in the browser - not good practice since data will be lost if the user clears cache
+        //in this case, we are storing the jwt 
+    const token = localStorage.getItem('jwt')
+    if(!token) {
+        return <Navigate to="/login" />
+    }
 
     useEffect(() => {
         const fetchData = async () => {
