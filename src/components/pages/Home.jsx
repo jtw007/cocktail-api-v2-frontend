@@ -31,8 +31,8 @@ const Home = ({ currentUser }) => {
     }
 
     const faveSubmit = (e) => {
-        // console.log(`I was favorited`)
-        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/favorites`)
+            console.log(`I was favorited`)
+            axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`)
     }
 
     const favButton = (
