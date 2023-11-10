@@ -15,6 +15,7 @@ const Faves = () => {
                 // hit the auth locked endpoint
                 const response = await axios.get(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`, {headers: {'Authorization': token}})
                 setFave(response.data)
+                console.log(response.data, 'hey')
             } catch(error) {
                 // if error message is 401, means auth failed
                 console.warn(error)
@@ -27,7 +28,7 @@ const Faves = () => {
             }
         }
         fetchData()
-    })
+    }, [])
 
     return (
         <div className=''>

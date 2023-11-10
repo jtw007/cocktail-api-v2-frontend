@@ -30,8 +30,17 @@ const Home = ({ currentUser }) => {
         // console.log(`recipeResults console.log ${recipeResults}`)
     }
 
+    const faveSubmit = (e) => {
+        // console.log(`I was favorited`)
+        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/favorites`)
+    }
+
     const favButton = (
-        <button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Favorite</button>
+        <button 
+            type='submit'
+            onClick={faveSubmit}
+            className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'
+            >Favorite</button>
     )
 
     const regButton = (
