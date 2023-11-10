@@ -6,8 +6,9 @@ import jwt_decode from 'jwt-decode'
 const Home = ({ currentUser }) => {
     const API_KEY = import.meta.env.VITE_API_KEY
 
-    const [recipe, setRecipe ] = useState([])
-    const [results, setResults ] = useState('')
+    const [ recipe, setRecipe ] = useState([])
+    const [ results, setResults ] = useState('')
+    const [ form, setForm ] = useState({})
 
     const navigate = useNavigate()
 
@@ -30,10 +31,20 @@ const Home = ({ currentUser }) => {
         // console.log(`i was submitted`)
         // console.log(`recipeResults console.log ${recipeResults}`)
     }
+    const token = localStorage.getItem('jwt')
+    const decoded = jwt_decode(token)
 
     const faveSubmit = (e) => {
+        e.preventDefault()
+        const faveCopy = {...form, user: decoded.id}
         console.log(`I was favorited`)
-        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`)
+        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`,faveCopy, { headers: { 'Authorization': token }})
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(`Error: ${error}`)
+            })
     }
 
     const favButton = (
@@ -45,7 +56,7 @@ const Home = ({ currentUser }) => {
     )
 
     const regButton = (
-        <button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Log in to favorite</button>
+        <a href='/login'><button className='bg-[#0000a3] hover:bg-[#0606ff] text-white rounded-md font-medium w-[150px] px-6 py-3'>Log in to favorite</button></a>
     )
 
     const recipeResults = recipe?.map((cocktail, idx) => {
