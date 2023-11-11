@@ -5,7 +5,7 @@ import { Navigate, Link } from 'react-router-dom'
 
 const Register = ({ currentUser, setCurrentUser }) => {
     // state for the controlled form
-	const [userName, setuserName] = useState('')
+	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [msg, setMsg] = useState('')
@@ -16,7 +16,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
 		try {
 			// post fortm data to the backend
 			const reqBody = {
-				userName,
+				username,
 				email, 
 				password
 			}
@@ -61,8 +61,8 @@ const Register = ({ currentUser, setCurrentUser }) => {
 						type='text'
 						id='username'
 						placeholder='Username'
-						onChange={e => setuserName(e.target.value)}
-						value={userName}
+						onChange={e => setUsername(e.target.value)}
+						value={username}
 						required
 					/>
 

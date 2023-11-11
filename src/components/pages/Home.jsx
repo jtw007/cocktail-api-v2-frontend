@@ -1,7 +1,6 @@
 import { useNavigate, Navigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import jwt_decode from 'jwt-decode'
 
 const Home = ({ currentUser }) => {
     const API_KEY = import.meta.env.VITE_API_KEY
@@ -31,14 +30,11 @@ const Home = ({ currentUser }) => {
         // console.log(`i was submitted`)
         // console.log(`recipeResults console.log ${recipeResults}`)
     }
-    const token = localStorage.getItem('jwt')
-    const decoded = jwt_decode(token)
 
     const faveSubmit = (e) => {
         e.preventDefault()
-        const faveCopy = {...form, user: decoded.id}
         console.log(`I was favorited`)
-        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`,faveCopy, { headers: { 'Authorization': token }})
+        axios.post(`${import.meta.env.VITE_API_SERVER_URL}/api-v1/favorites`)
             .then(response => {
                 console.log(response.data)
             })
