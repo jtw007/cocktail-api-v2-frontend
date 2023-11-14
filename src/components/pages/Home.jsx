@@ -7,7 +7,6 @@ const Home = ({ currentUser }) => {
 
     const [ recipe, setRecipe ] = useState([])
     const [ results, setResults ] = useState('')
-    const [ form, setForm ] = useState({})
 
     const navigate = useNavigate()
 
