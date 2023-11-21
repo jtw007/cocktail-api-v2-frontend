@@ -59,7 +59,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
         <div className='xs:my-[50px] sm:my-[100px] md:my-[200px] lg:my-[300px] flex flex-col items-center justify-center sm:h-full'>
             <div className='shadow-2xl flex flex-col p-4 my-10 rounded-3xl border-[5px] border-[#d72d5c] bg-slate-100/[.85] items-center sm:w-[375px] md:w-[450px]'>
                 <div className='flex flex-col'>
-                    <p className='text-2xl font-bold text-center my-2'>Login</p>
+                    <p className='text-2xl font-bold text-center my-2'>Sample Login Page</p>
                     <p className='text-lg font-bold text-red-600'>{msg}</p>
                 </div>
 
@@ -84,11 +84,11 @@ const Login = ({ currentUser, setCurrentUser }) => {
                         className='bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' 
                         type='submit' 
                         >Login</button>
-                    <button 
+                    {/* <button 
                         className='bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' 
                         onClick={() => auth()}
                         type='submit' 
-                        >Log in with Google</button>
+                        >Log in with Google</button> */}
                     <div className='font-bold md:text-xl'>
                         Don't have an account? <Link className='text-blue-900' to={'/register'}>Register here</Link> 
                     </div>

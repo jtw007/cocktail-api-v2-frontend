@@ -80,9 +80,9 @@ const Home = ({ currentUser }) => {
                     <p className='text-center font-bold pt-2 text-lg'>Instructions:</p>
                     <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
                 </ul>
-                <div className='flex flex-col items-center h-[100%] justify-end mb-2'>
+                {/* <div className='flex flex-col items-center h-[100%] justify-end mb-2'>
                     {currentUser ? favButton : regButton}
-                </div>
+                </div> */}
             </div>
         )
     })
@@ -90,7 +90,7 @@ const Home = ({ currentUser }) => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-3xl border-[5px] border-[#d72d5c] bg-slate-100/[.85]'>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-3xl border-[5px] border-[#b501fb] bg-slate-100/[.85]'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
