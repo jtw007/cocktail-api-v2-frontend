@@ -74,7 +74,7 @@ const Home = ({ currentUser }) => {
             return splitMap;
         }
         return (
-            <div className='xs:max-w-[330px] sm:max-w-[350px] h-[600px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex flex-col' key={`cocktail-${idx}`}>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex flex-col' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' 
                     style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
