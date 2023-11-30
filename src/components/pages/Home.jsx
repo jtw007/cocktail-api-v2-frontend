@@ -79,9 +79,10 @@ const Home = ({ currentUser }) => {
                     style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <p className='text-center font-bold pt-2 text-lg'>Ingredients:</p>
-                    <p className='border-b-[3px] border-black p-2 text-lg'>{ingredientsArray(cocktail?.ingredients)}</p>
+                    <p className='border-b-[3px] border-black p-2 text-lg list-disc'>{ingredientsArray(cocktail?.ingredients)}</p>
                     <p className='text-center font-bold pt-2 text-lg'>Instructions:</p>
                     <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
+                    {/* <p className='p-2 text-lg list-disc'>{cocktail?.instructions}</p> */}
                 </ul>
                 {/* <div className='flex flex-col items-center h-[100%] justify-end mb-2'>
                     {currentUser ? favButton : regButton}
