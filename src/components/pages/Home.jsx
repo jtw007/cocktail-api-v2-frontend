@@ -126,7 +126,7 @@ const Home = ({ currentUser }) => {
 
                 {recipeResults.length === 0 && searchClicked ? (
                     <div className='mx-auto md:p-10 sm:py-5 xs:py-2 gap-8'> 
-                        <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[400px] h-[300px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex items-center'>
+                        <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[400px] h-[300px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl lg:hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex items-center'>
                             <h3 className='text-xl text-center font-bold py-2'>Sorry, there isn't a recipe for that 🥲. Please redo your search!</h3>
                         </div>
                     </div>
