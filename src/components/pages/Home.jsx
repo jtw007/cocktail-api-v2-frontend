@@ -74,7 +74,7 @@ const Home = ({ currentUser }) => {
             return splitMap;
         }
         return (
-            <div className='xs:max-w-[330px] sm:max-w-[350px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-[#FAF9F6] flex flex-col' key={`cocktail-${idx}`}>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] shadow-lg p-4 mt-5 md:m-5 rounded-2xl hover:scale-105 duration-300 border-3 bg-[#FAF9F6] flex flex-col' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' 
                     style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
@@ -95,11 +95,11 @@ const Home = ({ currentUser }) => {
     return (
         <div className='w-full flex flex-col items-center'>
 
-            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-3xl border-[5px] border-[#b501fb] bg-[#FAF9F6]'>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-2xl border-3 bg-[#FAF9F6]'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
                 <h4 className='text-center'>Please drink responsibly</h4>
                 <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
-                <p className="text-xl py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
+                <p className="text-xl py-2">Name: Name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
                 <p className="text-xl py-2">Ingredients: Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use: vodka, lemon juice.</p>
 
                 <form className="flex xs:flex-col sm:flex-col md:flex-row items-center justify-center w-full" 
