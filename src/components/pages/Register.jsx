@@ -86,7 +86,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
 						required
 					/>
 
-					<button className='bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' type="submit" id='register-btn'>Register</button>
+					<button className='bg-[#0000a3] text-white rounded-full font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' type="submit" id='register-btn'>Register</button>
 					<div className='font-bold md:text-xl'>
                         Already have an account? <Link className='text-blue-900' to={'/login'}>Login here</Link> 
                     </div>

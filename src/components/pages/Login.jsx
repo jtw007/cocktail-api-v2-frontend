@@ -81,7 +81,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
                     />
 
                     <button 
-                        className='bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' 
+                        className='bg-[#0000a3] text-white rounded-full font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]' 
                         type='submit' 
                         >Login</button>
                     {/* <button 
