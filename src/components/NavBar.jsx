@@ -48,11 +48,11 @@ const NavBar = ({ currentUser, handleLogout }) => {
 	 )
 
     return (
-        <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#0000a3] shadow-md'>
+        <div className='flex justify-between items-center h-24 w-full mx-auto px-10 text-white bg-[#002ea3] shadow-md'>
             <a href='/'>
                 <div className='flex flex-row h-24 items-center'>
                     <img className='w-[60px] h-[60px] sm:pr-2' src={navImg} alt='img' />
-                    <h1 className='text-3xl font-bold text-[#b501fb]'>SpiritFinder
+                    <h1 className='text-3xl font-bold text-[#FAF9F6]'>SpiritFinder
                     </h1>
                 </div>
             </a>
@@ -63,25 +63,25 @@ const NavBar = ({ currentUser, handleLogout }) => {
                 {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} /> }
             </div>
             <ul className={loggedIn && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#0000a3] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to="/" onClick={closeNav}><span onClick={handleLogout}>Logout</span></Link>
                 </li>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to="/profile" onClick={closeNav}>Profile</Link>
                 </li>
             </ul>
 
             <ul className={loggedOut && nav ? 'fixed top-24 left-0 w-full h-full overflow-hidden ease-in-out duration-500 border-r-black-900 bg-[#0000a3] md:hidden' : 'ease-in-out duration-500 fixed top-[-100%]'}>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to='/' onClick={closeNav}>Home</Link>
                 </li>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to="/register" onClick={closeNav}>Register</Link>
                     </li>
-                <li className='py-10 text-center w-full'>
+                <li className='py-10 text-center w-full text-[#FAF9F6]'>
                     <Link to="/login" onClick={closeNav}>Login</Link>
                 </li>
             </ul>

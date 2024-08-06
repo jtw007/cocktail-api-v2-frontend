@@ -74,14 +74,16 @@ const Home = ({ currentUser }) => {
             return splitMap;
         }
         return (
-            <div className='xs:max-w-[330px] sm:max-w-[350px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl lg:hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex flex-col' key={`cocktail-${idx}`}>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] shadow-lg p-7 mt-5 md:m-5 rounded-2xl hover:scale-105 duration-300 border-3 bg-[#FAF9F6] flex flex-col flex-grow min-h-[600px]' key={`cocktail-${idx}`}>
                 <h3 className='text-xl border-b-4 border-b-black text-center font-bold py-2' 
                     style={{textTransform: 'capitalize'}}>{cocktail?.name}</h3>
                 <ul className=''>
                     <p className='text-center font-bold pt-2 text-lg'>Ingredients:</p>
-                    <p className='border-b-[3px] border-black p-2 text-lg list-disc'>{ingredientsArray(cocktail?.ingredients)}</p>
+                    {/* <p className='border-b-[3px] border-black p-2 text-lg list-disc'>{ingredientsArray(cocktail?.ingredients)}</p> */}
+                    <p className='p-2 text-lg list-disc'>{ingredientsArray(cocktail?.ingredients)}</p>
                     <p className='text-center font-bold pt-2 text-lg'>Instructions:</p>
                     <p className='p-2 text-lg'>{instructionArray(cocktail?.instructions)}</p>
+                    {/* <p className='p-2 text-lg'>{cocktail?.instructions}</p> */}
                     {/* <p className='p-2 text-lg list-disc'>{cocktail?.instructions}</p> */}
                 </ul>
                 {/* <div className='flex flex-col items-center h-[100%] justify-end mb-2'>
@@ -93,14 +95,11 @@ const Home = ({ currentUser }) => {
     // console.log(recipeResults) 
 
     return (
-        <div className='w-full flex flex-col items-center'>
+        <div className='w-full flex flex-col items-center mb-24'>
 
-            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-3xl border-[5px] border-[#b501fb] bg-slate-100/[.85]'>
+            <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] shadow-2xl flex flex-col p-4 xs:my-5 sm:my-5 md:my-12 rounded-2xl border-3 bg-[#FAF9F6]'>
                 <h2 className='text-3xl font-bold py-4 text-center'>Search for a recipe</h2>
-                <h4 className='text-center'>Please drink responsibly</h4>
-                <p className="text-xl text-center py-2">Include one of the following search parameters: </p>
-                <p className="text-xl py-2">Name: name of cocktail. This parameter supports partial matches (e.g. bloody will match bloody mary and bloody margarita) </p>
-                <p className="text-xl py-2">Ingredients: Only cocktails containing all listed ingredients will be returned. For example, to search cocktails containing Vodka and lemon juice, use: vodka, lemon juice.</p>
+                <p className="text-xl text-center py-2">Use one of the following search parameters to find cocktails: <span className='font-bold'>Name</span> or <span className='font-bold'>Ingredients</span>. <br/> Search criteria supports partial matches:  "bloody" will match "bloody mary" and "bloody margarita". Only cocktails containing all listed ingredients will be returned: "vodka, lemon juice" will return cocktails with both vodka and lemon juice.</p>
 
                 <form className="flex xs:flex-col sm:flex-col md:flex-row items-center justify-center w-full" 
                 onSubmit={handleSubmit}>
@@ -115,7 +114,7 @@ const Home = ({ currentUser }) => {
                         onChange={e => setResults(e.target.value)}
                     />
 
-                    <button className="bg-[#0000a3] text-white rounded-md font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]" 
+                    <button className="bg-[#0000a3] text-white rounded-full font-medium w-[150px] ml-4 my-6 px-6 py-3 hover:bg-[#0606ff]" 
                         type="submit" 
                         onClick={fetchResults}
                     >
@@ -126,7 +125,7 @@ const Home = ({ currentUser }) => {
 
                 {recipeResults.length === 0 && searchClicked ? (
                     <div className='mx-auto md:p-10 sm:py-5 xs:py-2 gap-8'> 
-                        <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[400px] h-[300px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl lg:hover:scale-105 duration-300 border-4 border-[#d72d5c] bg-slate-100/[.85] flex items-center'>
+                        <div className='xs:max-w-[330px] sm:max-w-[350px] md:max-w-[400px] h-[300px] shadow-lg p-4 mt-5 md:m-5 rounded-3xl duration-300 border-3 bg-[#FAF9F6] flex items-center'>
                             <h3 className='text-xl text-center font-bold py-2'>Sorry, there isn't a recipe for that 🥲. Please redo your search!</h3>
                         </div>
                     </div>
@@ -136,7 +135,7 @@ const Home = ({ currentUser }) => {
                         {recipeResults}
                     </div>
                 )} 
-            </div>
+        </div>
         
     )
 }
